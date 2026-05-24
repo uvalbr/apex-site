@@ -37,7 +37,7 @@ const FAQS = [
   },
   {
     q: "Can you work with my existing CRM, dialer, and stack?",
-    a: "Yes. We integrate with HubSpot, Salesforce, Pipedrive, GoHighLevel, ServiceTitan, JobNimbus, Housecall Pro, Acculynx, and most major construction CRMs. Dialer-wise we work with Aircall, JustCall, RingCentral, and CRM-native dialers. If you're on something exotic, we'll audit it on the discovery call.",
+    a: "Yes — and when there's no native integration, we build custom API support so any system can plug in. Out of the box we support HubSpot, Salesforce, Pipedrive, GoHighLevel, ServiceTitan, JobNimbus, Housecall Pro, AccuLynx, monday.com, and most major construction CRMs. Dialer-wise we work with Aircall, JustCall, RingCentral, and CRM-native dialers. Exotic stack? We'll wire it via direct API, Zapier, or webhook — nothing is off-limits.",
   },
   {
     q: "Do you guarantee specific results?",

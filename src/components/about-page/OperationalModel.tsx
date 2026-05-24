@@ -31,8 +31,8 @@ const PILLARS = [
   },
   {
     title: "Training infrastructure built-in",
-    body: "We run a permanent training cohort separate from live ops. New hires complete 7 days of core training (industry knowledge, objection handling, CRM hygiene, compliance) before touching your account. Existing agents get monthly refreshers on script updates, new objection patterns, and product launches.",
-    metric: "7-day pre-account training mandatory",
+    body: "We run a permanent training cohort separate from live ops. New hires complete 3 days of core training (industry knowledge, objection handling, CRM hygiene, compliance) before touching your account. Existing agents get monthly refreshers on script updates, new objection patterns, and product launches.",
+    metric: "3-day pre-account training mandatory",
   },
 ];
 

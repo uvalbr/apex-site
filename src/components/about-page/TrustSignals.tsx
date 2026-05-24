@@ -26,8 +26,8 @@ const SIGNALS = [
   },
   {
     label: "Tech stack flexibility",
-    value: "20+ CRMs supported",
-    body: "Native experience with HubSpot, Salesforce, ServiceTitan, JobNimbus, Acculynx, Pipedrive, GoHighLevel, and most major construction CRMs.",
+    value: "Any CRM, native or custom",
+    body: "Native experience with HubSpot, Salesforce, ServiceTitan, JobNimbus, AccuLynx, Pipedrive, GoHighLevel, monday.com, and most major construction CRMs. If yours isn't on the list, we build custom API support — no stack is off-limits.",
   },
   {
     label: "Scalability",

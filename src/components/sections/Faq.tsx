@@ -21,7 +21,7 @@ const FAQS: Qa[] = [
   },
   {
     q: "Can you integrate with my CRM?",
-    a: "Yes. We integrate with the major construction CRMs — JobNimbus, ServiceTitan, AccuLynx, JobTread, HubSpot, Salesforce, Pipedrive, GoHighLevel, plus most homegrown stacks. If you use something obscure, we still find a clean way in via API, Zapier, or direct webhook. CRM integration is a named milestone in week 2.",
+    a: "Yes — and if your stack isn't on a standard list, we build custom API support so any system works, even without an official integration. Native support out of the box for JobNimbus, ServiceTitan, AccuLynx, JobTread, HubSpot, Salesforce, Pipedrive, GoHighLevel, monday.com, and most homegrown stacks. For anything exotic, we connect via direct API, Zapier, or webhooks. CRM integration is a named milestone in week 2 — no exceptions.",
   },
   {
     q: "What if I already have an internal sales team?",
