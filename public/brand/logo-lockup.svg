@@ -1,24 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" fill="none" aria-label="APEX Revenue Operations">
-  <defs>
-    <linearGradient id="lkGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3FA0FF" />
-      <stop offset="55%" stop-color="#1E5FD8" />
-      <stop offset="100%" stop-color="#0A1E3F" />
-    </linearGradient>
-    <linearGradient id="lkEdge" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3FA0FF" />
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.85" />
-    </linearGradient>
-  </defs>
-  <!-- mark -->
-  <g transform="translate(0,0)">
-    <path d="M32 6 L58 56 L40 56 Z" fill="url(#lkGrad)" />
-    <path d="M32 6 L6 56 L24 56 L32 22 Z" fill="url(#lkEdge)" />
-    <path d="M32 22 L24 56 L20 56 L32 30 Z" fill="#FFFFFF" fill-opacity="0.45" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" fill="none" aria-label="APEX Revenue Operations">
+  <!-- Mark -->
+  <g transform="translate(0, 0)">
+    <path
+      d="M 86 12 L 156 142 L 232 178 L 142 178 L 14 178 Z"
+      fill="#FFFFFF"
+    />
+    <g fill="#1E5FD8">
+      <path d="M 108 70  L 142 70  L 130 104 L 96  104 Z" />
+      <path d="M 122 108 L 160 108 L 148 144 L 110 144 Z" />
+      <path d="M 138 148 L 180 148 L 168 178 L 126 178 Z" />
+    </g>
+    <path
+      d="M 86 12 L 90 30 L 60 110 L 50 100 Z"
+      fill="#FFFFFF"
+      fill-opacity="0.18"
+    />
   </g>
-  <!-- wordmark -->
-  <g transform="translate(74, 0)" fill="currentColor">
-    <text x="0" y="36" font-family="'Inter Tight', system-ui, sans-serif" font-weight="800" font-size="32" letter-spacing="-0.02em">APEX</text>
-    <text x="0" y="54" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="9.5" letter-spacing="0.32em" fill-opacity="0.78">REVENUE OPERATIONS</text>
+
+  <!-- Wordmark -->
+  <g transform="translate(270, 0)" font-family="'Inter Tight', 'Inter', system-ui, sans-serif">
+    <text
+      x="0"
+      y="118"
+      font-weight="800"
+      font-size="116"
+      letter-spacing="-0.01em"
+      fill="#FFFFFF"
+    >APEX</text>
+    <text
+      x="2"
+      y="158"
+      font-weight="600"
+      font-size="24"
+      letter-spacing="0.32em"
+      fill="#1E5FD8"
+    >REVENUE OPERATIONS</text>
   </g>
 </svg>
