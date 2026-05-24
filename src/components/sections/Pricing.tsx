@@ -171,7 +171,7 @@ export function Pricing() {
             transition={{ duration: 0.5, ease: ease.outQuart }}
             className="mt-12 max-w-5xl mx-auto rounded-3xl border border-[var(--color-brand-blue)]/40 bg-gradient-to-br from-[var(--color-bg-elevated)] to-[var(--color-brand-navy)] overflow-hidden"
           >
-            <div className="grid md:grid-cols-[1.4fr_1fr]">
+            <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr]">
               <div className="p-6 md:p-10 border-b md:border-b-0 md:border-r border-[var(--color-border-subtle)]">
                 <div className="eyebrow">{active.tagline}</div>
                 <h3 className="mt-3 font-display text-3xl md:text-4xl tracking-tight">

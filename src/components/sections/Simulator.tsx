@@ -87,7 +87,7 @@ export function Simulator() {
           </p>
         </Reveal>
 
-        <div className="mt-12 md:mt-16 grid lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-10">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-6 lg:gap-10">
           {/* INPUTS */}
           <Reveal delay={120}>
             <div className="rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/70 backdrop-blur-md p-6 md:p-8">

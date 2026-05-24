@@ -134,7 +134,7 @@ const STUDIES: Study[] = [
 
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="relative py-24 md:py-40">
+    <section id="case-studies" className="relative overflow-hidden py-24 md:py-40">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-[var(--color-border-subtle)]"

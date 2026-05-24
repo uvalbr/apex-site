@@ -32,7 +32,7 @@ export function ServiceSection({ service, index }: { service: ServiceDeep; index
 
       <div className="relative container-app">
         {/* Header row */}
-        <div className="grid lg:grid-cols-[1fr_360px] gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 lg:gap-12 items-start">
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="w-8 h-px bg-[var(--color-brand-bright)]" />
@@ -86,7 +86,7 @@ export function ServiceSection({ service, index }: { service: ServiceDeep; index
         </Reveal>
 
         {/* Deliverables + KPIs */}
-        <div className="mt-10 md:mt-14 grid lg:grid-cols-[1fr_360px] gap-8 lg:gap-12 items-start">
+        <div className="mt-10 md:mt-14 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 lg:gap-12 items-start">
           {/* Deliverables */}
           <Reveal delay={120}>
             <div>

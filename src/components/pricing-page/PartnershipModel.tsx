@@ -46,7 +46,7 @@ export function PartnershipModel() {
         </Reveal>
 
         <Reveal delay={140}>
-          <div className="mt-14 grid md:grid-cols-3 gap-4">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
             {STEPS.map((step) => (
               <div
                 key={step.n}
@@ -73,7 +73,7 @@ export function PartnershipModel() {
 
         <Reveal delay={260}>
           <div className="mt-10 rounded-2xl border border-[var(--color-brand-blue)]/30 bg-[var(--color-brand-blue)]/8 p-7 md:p-9">
-            <div className="grid md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
               <div>
                 <div className="eyebrow mb-3">Why this structure</div>
                 <p className="text-base md:text-lg text-[var(--color-ink-primary)] leading-relaxed">

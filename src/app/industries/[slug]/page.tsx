@@ -132,7 +132,7 @@ function Hero({ industry }: { industry: Industry }) {
           <span className="text-[var(--color-brand-bright)]">{industry.navLabel}</span>
         </nav>
 
-        <div className="mt-8 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
           {/* Left: copy */}
           <div>
             <Reveal>
@@ -330,7 +330,7 @@ function VerticalMath({ industry }: { industry: Industry }) {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {industry.verticalMath.map((stat, i) => (
             <Reveal key={i} delay={i * 70}>
               <MathCard {...stat} />
@@ -407,7 +407,7 @@ function RevenueLeaks({ industry }: { industry: Industry }) {
       />
 
       <div className="relative container-wide">
-        <div className="grid lg:grid-cols-[0.9fr_1.4fr] gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-12 lg:gap-16 items-start">
           <Reveal>
             <SectionLabel number="02" className="text-[var(--color-danger)]">
               <span className="text-[var(--color-danger)]">Where revenue leaks</span>
@@ -506,7 +506,7 @@ function ApexTactics({ industry }: { industry: Industry }) {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-2 gap-4 md:gap-5">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5">
           {industry.tactics.map((tactic, i) => (
             <Reveal key={i} delay={i * 90}>
               <TacticCard {...tactic} index={i + 1} />
@@ -567,7 +567,7 @@ function RoiPanel({ industry }: { industry: Industry }) {
                   "radial-gradient(circle at 85% 10%, rgba(63,160,255,0.28), transparent 55%)",
               }}
             />
-            <div className="relative grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
+            <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
               <div>
                 <SectionLabel number="04">The math, made personal</SectionLabel>
                 <h2 className="mt-4 font-display text-3xl sm:text-5xl md:text-[56px] tracking-[-0.035em] leading-[1.04]">
@@ -643,7 +643,7 @@ function FaqSection({ industry }: { industry: Industry }) {
   return (
     <section className="relative py-20 md:py-32 bg-[var(--color-bg-elevated)]/30 border-t border-[var(--color-border-subtle)]">
       <div className="container-app">
-        <div className="grid lg:grid-cols-[0.85fr_1.4fr] gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.4fr] gap-12 lg:gap-16 items-start">
           <Reveal>
             <SectionLabel number="05">FAQ</SectionLabel>
             <h2 className="mt-4 font-display text-3xl sm:text-5xl md:text-6xl tracking-[-0.035em] leading-[1.04]">
@@ -757,7 +757,7 @@ function RelatedAndCta({
             </div>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {related.map((r, i) => (
               <Reveal key={r.slug} delay={i * 80}>
                 <Link

@@ -41,6 +41,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Belt + suspenders: prevent any rogue decorative element from triggering
+     mobile zoom-out to fit. Combined with overflow-x on body. */
+  overflow-x: hidden;
 }
 
 body {
@@ -50,6 +53,10 @@ body {
   font-feature-settings: "ss01", "cv02", "cv11";
   font-synthesis: none;
   overflow-x: hidden;
+  /* Hard clamp viewport width so absolutely-positioned decorative blobs at
+     right:0 with w-[Npx] cannot extend the page wider than the visible
+     viewport on small screens. */
+  max-width: 100vw;
 }
 
 ::selection {

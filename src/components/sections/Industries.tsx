@@ -137,7 +137,7 @@ export function Industries() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.5, ease: ease.outQuart }}
-              className="grid lg:grid-cols-3 gap-4"
+              className="grid grid-cols-1 lg:grid-cols-3 gap-4"
             >
               <StatCard
                 label="Avg project value"
@@ -167,7 +167,7 @@ export function Industries() {
               />
 
               <div className="lg:col-span-3 rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/60 backdrop-blur-md p-6 md:p-8">
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <div className="eyebrow mb-3 text-[var(--color-danger)]">The hidden leak</div>
                     <p className="text-base md:text-lg text-[var(--color-ink-primary)] leading-relaxed">

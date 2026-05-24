@@ -101,7 +101,7 @@ export default function IndustriesHubPage() {
       {/* ───────────────── Card grid ───────────────── */}
       <section className="relative py-20 md:py-32">
         <div className="container-app">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {INDUSTRIES.map((ind, i) => (
               <Reveal key={ind.slug} delay={i * 80}>
                 <IndustryCard industry={ind} />
@@ -146,7 +146,7 @@ export default function IndustriesHubPage() {
         <div aria-hidden className="absolute inset-0 bg-grid opacity-30" />
 
         <div className="relative container-wide">
-          <div className="grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-20 items-start">
             <Reveal>
               <SectionLabel number="03">Why only construction</SectionLabel>
               <h2 className="mt-4 font-display text-3xl sm:text-5xl md:text-6xl tracking-[-0.035em] leading-[1.02]">
@@ -178,7 +178,7 @@ export default function IndustriesHubPage() {
                 </p>
 
                 {/* Pillar bullets */}
-                <ul className="mt-8 grid sm:grid-cols-2 gap-3 pt-2">
+                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   {WHY_PILLARS.map((p) => (
                     <li
                       key={p.label}

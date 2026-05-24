@@ -63,7 +63,7 @@ export default async function ArticlePage({
       {/* ─────────── Body + TOC ─────────── */}
       <section className="relative py-12 md:py-20">
         <div className="container-app">
-          <div className="grid lg:grid-cols-[1fr_2.4fr] gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2.4fr] gap-12 lg:gap-16">
             <Toc items={tocItems} />
 
             <div>

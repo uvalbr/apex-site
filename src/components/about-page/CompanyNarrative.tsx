@@ -7,7 +7,7 @@ export function CompanyNarrative() {
   return (
     <section className="relative py-20 md:py-32 border-t border-[var(--color-border-subtle)]">
       <div className="container-app">
-        <div className="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-16">
           <Reveal>
             <div className="lg:sticky lg:top-32">
               <SectionLabel number="02">The category</SectionLabel>

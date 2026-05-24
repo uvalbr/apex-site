@@ -112,7 +112,7 @@ export function Services() {
           </p>
         </Reveal>
 
-        <div className="mt-14 md:mt-20 grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-14">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 lg:gap-14">
           {/* Service tabs */}
           <Reveal delay={120}>
             <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible no-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
@@ -183,7 +183,7 @@ export function Services() {
                     {current.pitch}
                   </p>
 
-                  <div className="mt-8 grid sm:grid-cols-2 gap-2">
+                  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {current.bullets.map((b, i) => (
                       <motion.div
                         key={b}

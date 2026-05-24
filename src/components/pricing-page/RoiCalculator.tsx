@@ -64,7 +64,7 @@ export function RoiCalculator() {
         </Reveal>
 
         <Reveal delay={140}>
-          <div className="mt-12 grid lg:grid-cols-[1.1fr_1fr] gap-6">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6">
             {/* Inputs */}
             <div className="rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/60 backdrop-blur-md p-6 md:p-9">
               <div className="eyebrow mb-5">Your inputs</div>

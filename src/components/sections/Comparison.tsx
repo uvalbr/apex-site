@@ -162,7 +162,7 @@ export function Comparison() {
   return (
     <section
       id="comparison"
-      className="relative py-24 md:py-40 bg-[var(--color-bg-elevated)]/30"
+      className="relative overflow-hidden py-24 md:py-40 bg-[var(--color-bg-elevated)]/30"
     >
       <div aria-hidden className="absolute inset-0 bg-grid opacity-50" />
       <div

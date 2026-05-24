@@ -148,7 +148,7 @@ function TierCard({ tier, index }: { tier: Tier; index: number }) {
           : "border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/60"
       }`}
     >
-      <div className="grid lg:grid-cols-[1fr_320px]">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px]">
         {/* Left: detail */}
         <div className="p-7 md:p-12 border-b lg:border-b-0 lg:border-r border-[var(--color-border-subtle)]">
           <div className="flex items-baseline gap-4 flex-wrap">
@@ -169,7 +169,7 @@ function TierCard({ tier, index }: { tier: Tier; index: number }) {
             <p className="text-sm text-[var(--color-ink-primary)] leading-relaxed">{tier.forWho}</p>
           </div>
 
-          <div className="mt-5 grid sm:grid-cols-2 gap-3">
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-deep)]/40 p-4">
               <div className="eyebrow mb-1.5 text-[var(--color-ink-tertiary)]">Team composition</div>
               <p className="text-sm text-[var(--color-ink-primary)] font-mono tabular">{tier.team}</p>

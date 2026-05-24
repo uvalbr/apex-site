@@ -40,7 +40,7 @@ export default function NotFound() {
       />
 
       <div className="relative container-app w-full">
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
           {/* Left: the big 404 + copy */}
           <div>
             <div className="flex items-center gap-3">
