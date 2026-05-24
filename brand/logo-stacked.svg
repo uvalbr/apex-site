@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" fill="none" aria-label="APEX Revenue Operations">
+  <!-- Mark + wordmark in horizontal lockup -->
+  <g transform="translate(110, 30)">
+    <path d="M 86 12 L 156 142 L 232 178 L 142 178 L 14 178 Z" fill="#FFFFFF" />
+    <g fill="#1E5FD8">
+      <path d="M 108 70  L 142 70  L 130 104 L 96  104 Z" />
+      <path d="M 122 108 L 160 108 L 148 144 L 110 144 Z" />
+      <path d="M 138 148 L 180 148 L 168 178 L 126 178 Z" />
+    </g>
+    <path d="M 86 12 L 90 30 L 60 110 L 50 100 Z" fill="#FFFFFF" fill-opacity="0.18" />
+    <g transform="translate(270, 0)" font-family="'Inter Tight', 'Inter', system-ui, sans-serif">
+      <text x="0" y="118" font-weight="800" font-size="116" letter-spacing="-0.01em" fill="#FFFFFF">APEX</text>
+      <text x="2" y="158" font-weight="600" font-size="24" letter-spacing="0.32em" fill="#1E5FD8">REVENUE OPERATIONS</text>
+    </g>
+  </g>
+
+  <!-- Tagline -->
+  <text
+    x="360"
+    y="295"
+    text-anchor="middle"
+    font-family="'Inter', system-ui, sans-serif"
+    font-style="italic"
+    font-weight="400"
+    font-size="28"
+    fill="#FFFFFF"
+    fill-opacity="0.92"
+  >Built to convert. Driven to scale.</text>
+</svg>
