@@ -8,7 +8,22 @@ import { ContactFaq } from "@/components/contact-page/ContactFaq";
 export const metadata: Metadata = {
   title: "Contact — Book a diagnostic call",
   description:
-    "Book a 30-minute diagnostic call with APEX Revenue Operations. We respond within one business hour during EST operating hours. No pitch decks. Free audit of your funnel.",
+    "Book a 30-minute revenue ops diagnostic with APEX. One-business-hour response on EST. Free audit of your funnel. No pitch decks.",
+  keywords: [
+    "revenue operations diagnostic call",
+    "construction sales audit",
+    "book sales operations consultation",
+    "contact APEX Revenue Operations",
+  ],
+  alternates: { canonical: "https://apex.texasserviceexperts.com/contact" },
+  openGraph: {
+    type: "website",
+    title: "Contact APEX Revenue Operations",
+    description:
+      "Book a 30-minute diagnostic call. Free audit of your funnel. One-business-hour response on EST.",
+    url: "https://apex.texasserviceexperts.com/contact",
+    siteName: "APEX Revenue Operations",
+  },
 };
 
 export default function ContactPage() {

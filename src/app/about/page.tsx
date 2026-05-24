@@ -11,7 +11,23 @@ import { AboutCta } from "@/components/about-page/AboutCta";
 export const metadata: Metadata = {
   title: "About — Revenue Operations Infrastructure for construction",
   description:
-    "APEX builds dedicated revenue operations functions for U.S. construction companies. Operating from Panama on EST. Why Panama, how we run, what we believe, and how we onboard you in 60 days.",
+    "Dedicated revenue operations teams for U.S. construction companies, operating from Panama on EST. Why Panama, how we run, and how we onboard you in 60 days.",
+  keywords: [
+    "APEX Revenue Operations",
+    "Panama nearshore sales operations",
+    "outsourced sales team construction",
+    "construction sales operations company",
+    "60 day sales onboarding",
+  ],
+  alternates: { canonical: "https://apex.texasserviceexperts.com/about" },
+  openGraph: {
+    type: "website",
+    title: "About APEX Revenue Operations",
+    description:
+      "Dedicated revenue operations for U.S. construction. EST-aligned, Panama-based, 60-day onboarding, performance-aligned engagements.",
+    url: "https://apex.texasserviceexperts.com/about",
+    siteName: "APEX Revenue Operations",
+  },
 };
 
 export default function AboutPage() {

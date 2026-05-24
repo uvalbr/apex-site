@@ -4,6 +4,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ScrollProgress } from "@/components/effects/ScrollProgress";
+import { PageTransition } from "@/components/effects/PageTransition";
+import { StickyBottomCta } from "@/components/mobile/StickyBottomCta";
+import { MobileHeroOptimizations } from "@/components/mobile/MobileHeroOptimizations";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,6 +63,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body className="min-h-screen">
         <JsonLd />
+        <MobileHeroOptimizations />
+        <ScrollProgress />
         <SmoothScroll />
         <a
           href="#main"
@@ -67,8 +73,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <Header />
-        <main id="main">{children}</main>
+        <main id="main">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
+        <StickyBottomCta />
       </body>
     </html>
   );

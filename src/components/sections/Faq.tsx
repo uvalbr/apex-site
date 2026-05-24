@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
 import { ease } from "@/lib/motion";
 import { cn } from "@/lib/cn";
 
@@ -62,6 +63,7 @@ export function Faq() {
       aria-labelledby="faq-heading"
       className="relative py-24 md:py-40"
     >
+      <FaqJsonLd items={FAQS.map((qa) => ({ question: qa.q, answer: qa.a }))} />
       <div className="container-app">
         <Reveal>
           <SectionLabel number="08">Questions</SectionLabel>

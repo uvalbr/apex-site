@@ -6,6 +6,9 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { IndustryIcon } from "@/components/industries-page/IndustryIcon";
 import { AnimatedCounter } from "@/components/industries-page/AnimatedCounter";
 import { FaqAccordion } from "@/components/industries-page/FaqAccordion";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ServiceJsonLd } from "@/components/seo/ServiceJsonLd";
 import {
   INDUSTRIES,
   INDUSTRY_SLUGS,
@@ -32,10 +35,26 @@ export async function generateMetadata({
   const { slug } = await params;
   const industry = getIndustryBySlug(slug);
   if (!industry) return {};
+  const canonical = `https://apex.texasserviceexperts.com/industries/${industry.slug}`;
+  const shortDesc = `Revenue operations for ${industry.label.toLowerCase()}: speed-to-lead, qualified booking, no-show reduction, and pipeline nurture tuned to ${industry.shortLabel.toLowerCase()} economics.`;
   return {
-    title: `${industry.label} — Revenue Operations Built for ${industry.label}`,
-    description: `${industry.heroHeadline} ${industry.heroHeadlineAccent} — APEX runs the revenue operations layer ${industry.label.toLowerCase()} companies need: speed-to-lead, qualified booking, confirmation systems, and disciplined pipeline nurture.`,
-    alternates: { canonical: `/industries/${industry.slug}` },
+    title: `${industry.label} Revenue Operations — Built for ${industry.shortLabel}`,
+    description: shortDesc.length > 160 ? `${shortDesc.slice(0, 157)}...` : shortDesc,
+    keywords: [
+      `${industry.label.toLowerCase()} revenue operations`,
+      `${industry.label.toLowerCase()} appointment setting`,
+      `${industry.label.toLowerCase()} lead conversion`,
+      `${industry.label.toLowerCase()} CRM management`,
+      "construction sales operations",
+    ],
+    alternates: { canonical },
+    openGraph: {
+      type: "website",
+      title: `${industry.label} — APEX Revenue Operations`,
+      description: `Vertical-specific revenue operations for ${industry.label.toLowerCase()} companies.`,
+      url: canonical,
+      siteName: "APEX Revenue Operations",
+    },
   };
 }
 
@@ -54,8 +73,27 @@ export default async function IndustryPage({
   // Related industries (the other 4, in display order)
   const related = INDUSTRIES.filter((i) => i.slug !== industry.slug).slice(0, 3);
 
+  const canonical = `https://apex.texasserviceexperts.com/industries/${industry.slug}`;
+  const faqItems = industry.faqs.map((f) => ({ question: f.q, answer: f.a }));
+
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Industries", url: "/industries" },
+          { name: industry.label, url: `/industries/${industry.slug}` },
+        ]}
+      />
+      <ServiceJsonLd
+        name={`APEX Revenue Operations — ${industry.label}`}
+        serviceType={`Revenue Operations for ${industry.label}`}
+        description={`Dedicated outsourced revenue operations infrastructure for U.S. ${industry.label.toLowerCase()} companies: inbound response, outbound reactivation, appointment confirmation, CRM management, and KPI oversight.`}
+        url={canonical}
+        audience={`U.S. ${industry.label.toLowerCase()} companies`}
+      />
+      <FaqJsonLd items={faqItems} />
+
       <Hero industry={industry} />
       <VerticalMath industry={industry} />
       <RevenueLeaks industry={industry} />

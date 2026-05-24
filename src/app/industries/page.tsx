@@ -8,8 +8,23 @@ import { INDUSTRIES } from "@/lib/industries-data";
 export const metadata: Metadata = {
   title: "Industries — Roofing, HVAC, Remodeling, Pool, GC",
   description:
-    "APEX builds dedicated revenue operations infrastructure for 5 construction verticals. Each playbook is tuned to the math of that industry — speed-to-lead for roofing, dispatch + confirmation for HVAC, long-cycle nurture for remodeling and pool, lead scoring for GCs.",
-  alternates: { canonical: "/industries" },
+    "Revenue operations for 5 construction verticals: roofing, HVAC, remodeling, pool, and general contracting. Vertical-specific playbooks, not generic scripts.",
+  keywords: [
+    "roofing revenue operations",
+    "HVAC appointment setting",
+    "remodeling lead nurture",
+    "pool builder sales operations",
+    "general contractor lead scoring",
+  ],
+  alternates: { canonical: "https://apex.texasserviceexperts.com/industries" },
+  openGraph: {
+    type: "website",
+    title: "Industries — APEX Revenue Operations",
+    description:
+      "Five construction verticals, five tuned playbooks. Roofing speed-to-lead. HVAC dispatch. Remodeling nurture. Pool long-cycle. GC scoring.",
+    url: "https://apex.texasserviceexperts.com/industries",
+    siteName: "APEX Revenue Operations",
+  },
 };
 
 export default function IndustriesHubPage() {
