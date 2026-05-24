@@ -7,7 +7,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3 mb-5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/logo-mark.svg" alt="" className="w-9 h-9" />
+            <img src="/brand/logo-mark-real.png" alt="" className="w-9 h-9" />
             <div className="leading-none">
               <div className="font-display text-lg tracking-tight">APEX</div>
               <div className="text-[9px] uppercase tracking-[0.32em] text-[var(--color-ink-tertiary)] mt-1">

@@ -36,7 +36,7 @@ export function Header() {
           <span className="relative w-8 h-8 md:w-9 md:h-9">
             <span className="absolute inset-0 rounded-full bg-[var(--color-brand-bright)]/30 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/logo-mark.svg" alt="" className="relative w-full h-full" />
+            <img src="/brand/logo-mark-real.png" alt="" className="relative w-full h-full" />
           </span>
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display text-lg tracking-tight">APEX</span>
