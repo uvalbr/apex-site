@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://apex.texasserviceexperts.com
+Sitemap: https://apex.texasserviceexperts.com/sitemap.xml

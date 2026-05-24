@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>APEX Revenue Operations — OG Image Template</title>
+    <meta name="viewport" content="width=1200" />
+    <!--
+      OG image template — 1200×630, dark navy + electric-blue accent.
+
+      Capture via a headless screenshot tool:
+        npx playwright screenshot --viewport-size=1200,630 \
+          public/og-image.html public/og-image.png
+
+      Or open in Chrome at 1200×630 and capture.
+    -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@500;600&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-deep: #050b1a;
+        --bg-elevated: #0a1428;
+        --brand-navy: #0a1e3f;
+        --brand-blue: #1e5fd8;
+        --brand-bright: #3fa0ff;
+        --ink-primary: #f5f8fc;
+        --ink-secondary: #9ba8c0;
+        --ink-tertiary: #5a6b85;
+        --border-subtle: #1a2842;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html, body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--bg-deep);
+        color: var(--ink-primary);
+        font-family: "Inter", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      .stage {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        padding: 72px 88px;
+        background:
+          radial-gradient(ellipse 80% 60% at 75% 110%, rgba(30, 95, 216, 0.45), transparent 60%),
+          radial-gradient(circle at 12% 8%, rgba(63, 160, 255, 0.20), transparent 55%),
+          linear-gradient(135deg, #050b1a 0%, #0a1e3f 60%, #122a55 100%);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(63, 160, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(63, 160, 255, 0.06) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+        pointer-events: none;
+      }
+
+      .chevron-accent {
+        position: absolute;
+        right: -40px;
+        top: 80px;
+        width: 320px;
+        height: 320px;
+        opacity: 0.55;
+        filter: drop-shadow(0 0 40px rgba(63, 160, 255, 0.55));
+      }
+
+      .header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        z-index: 2;
+      }
+
+      .logo-mark {
+        width: 56px;
+        height: 56px;
+      }
+
+      .logo-text {
+        font-family: "Inter Tight", system-ui, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        letter-spacing: -0.03em;
+        color: var(--ink-primary);
+      }
+
+      .logo-text .sub {
+        display: block;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.28em;
+        color: var(--brand-bright);
+        margin-top: 4px;
+      }
+
+      .body {
+        position: relative;
+        z-index: 2;
+        max-width: 880px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--brand-bright);
+        margin-bottom: 28px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 40px;
+        height: 1px;
+        background: var(--brand-bright);
+      }
+
+      .headline {
+        font-family: "Inter Tight", system-ui, sans-serif;
+        font-weight: 800;
+        font-size: 84px;
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        color: var(--ink-primary);
+      }
+
+      .headline .muted {
+        color: var(--ink-tertiary);
+      }
+
+      .sub {
+        margin-top: 28px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 22px;
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+        color: var(--ink-secondary);
+        max-width: 760px;
+      }
+
+      .footer {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 28px;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .url {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--ink-secondary);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(63, 160, 255, 0.4);
+        background: rgba(63, 160, 255, 0.08);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--brand-bright);
+        letter-spacing: 0.04em;
+      }
+
+      .pill .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand-bright);
+        box-shadow: 0 0 12px var(--brand-bright);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="grid"></div>
+
+      <!-- Decorative stair-step chevron accent -->
+      <svg
+        class="chevron-accent"
+        viewBox="0 0 320 320"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3FA0FF" />
+            <stop offset="100%" stop-color="#1E5FD8" stop-opacity="0.4" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M40 280 L100 180 L160 240 L220 140 L280 200 L280 280 Z"
+          fill="url(#g)"
+          opacity="0.55"
+        />
+        <path
+          d="M40 280 L100 180 L160 240 L220 140 L280 200"
+          stroke="#3FA0FF"
+          stroke-width="3"
+          fill="none"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
+      </svg>
+
+      <header class="header">
+        <svg
+          class="logo-mark"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 6 L58 54 L42 54 L32 36 L22 54 L6 54 Z"
+            fill="#3FA0FF"
+          />
+          <path
+            d="M32 6 L58 54 L42 54 L32 36 L22 54 L6 54 Z"
+            stroke="#1E5FD8"
+            stroke-width="1.5"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div class="logo-text">
+          APEX
+          <span class="sub">REVENUE OPERATIONS</span>
+        </div>
+      </header>
+
+      <div class="body">
+        <div class="eyebrow">Revenue Operations Infrastructure</div>
+        <h1 class="headline">
+          Built to Convert.<br />
+          <span class="muted">Driven to Scale.</span>
+        </h1>
+        <p class="sub">
+          Outsourced revenue operations for U.S. construction companies —
+          faster speed-to-lead, higher appointment conversion, lower no-shows.
+        </p>
+      </div>
+
+      <footer class="footer">
+        <span class="url">apex.texasserviceexperts.com</span>
+        <span class="pill">
+          <span class="dot"></span>
+          Now deploying — 60-day pilot
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>
