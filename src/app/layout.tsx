@@ -50,6 +50,27 @@ export const metadata: Metadata = {
       "Outsourced revenue operations infrastructure for construction companies. Built to convert. Driven to scale.",
     url: "https://apex.texasserviceexperts.com",
     siteName: "APEX Revenue Operations",
+    images: [
+      {
+        url: "/brand/logo-master-dark.png",
+        width: 1600,
+        height: 738,
+        alt: "APEX Revenue Operations — Built to convert. Driven to scale.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "APEX Revenue Operations",
+    description:
+      "Outsourced revenue operations infrastructure for construction companies.",
+    images: ["/brand/logo-master-dark.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/brand/logo-mark.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/brand/logo-mark.png",
   },
   robots: { index: true, follow: true },
 };
