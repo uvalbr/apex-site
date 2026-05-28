@@ -13,7 +13,7 @@ const TIERS = [
 
 export function RoiCalculator() {
   const [tierIdx, setTierIdx] = useState(1);
-  const [avgDeal, setAvgDeal] = useState(15000);
+  const [avgDeal, setAvgDeal] = useState(17500);
   const [margin, setMargin] = useState(35);
   const [appointments, setAppointments] = useState(60);
   const [closeRate, setCloseRate] = useState(25);
