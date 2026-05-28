@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { submitLead } from "@/lib/submitLead";
+
+type Status = "idle" | "sending" | "success" | "error";
 
 const INDUSTRIES = [
   "Roofing",
@@ -47,34 +50,64 @@ const SESSIONS = ["Diagnostic call (30 min)", "Discovery session (60 min)"];
 const CONTACT_PREFERENCES = ["Email", "Phone call", "Either"];
 
 export function DiagnosticForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const get = (k: string) => (fd.get(k) as string) || "";
+
+    setStatus("sending");
+    const result = await submitLead({
+      name: get("name"),
+      email: get("email"),
+      phone: get("phone"),
+      company: get("company"),
+      role: get("role"),
+      industry: get("industry"),
+      monthlyLeads: get("leads"),
+      source: "apex_diagnostic",
+      extra: [
+        ["Current setup", get("setup")],
+        ["Biggest pain point", get("pain")],
+        ["Preferred session", get("session")],
+        ["Timeline", get("timeline")],
+        ["Preferred contact", get("contactPref")],
+      ],
+      notes: get("notes"),
+    });
+
+    if (result.ok) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
+    // Backup so a lead is never lost: open a pre-filled email draft.
+    setStatus("error");
     const subject = encodeURIComponent(
-      `APEX ${fd.get("session") || "diagnostic"} request — ${fd.get("company") || ""}`
+      `APEX ${get("session") || "diagnostic"} request — ${get("company")}`
     );
     const lines = [
-      `Name: ${fd.get("name")}`,
-      `Role: ${fd.get("role")}`,
-      `Company: ${fd.get("company")}`,
-      `Email: ${fd.get("email")}`,
-      `Phone: ${fd.get("phone") || "—"}`,
-      `Industry: ${fd.get("industry")}`,
-      `Monthly leads (approx): ${fd.get("leads")}`,
-      `Current setup: ${fd.get("setup")}`,
-      `Biggest pain point: ${fd.get("pain")}`,
-      `Session type: ${fd.get("session")}`,
-      `Timeline: ${fd.get("timeline")}`,
-      `Preferred contact: ${fd.get("contactPref")}`,
+      `Name: ${get("name")}`,
+      `Role: ${get("role")}`,
+      `Company: ${get("company")}`,
+      `Email: ${get("email")}`,
+      `Phone: ${get("phone") || "—"}`,
+      `Industry: ${get("industry")}`,
+      `Monthly leads (approx): ${get("leads")}`,
+      `Current setup: ${get("setup")}`,
+      `Biggest pain point: ${get("pain")}`,
+      `Session type: ${get("session")}`,
+      `Timeline: ${get("timeline")}`,
+      `Preferred contact: ${get("contactPref")}`,
       "",
       "Notes:",
-      `${fd.get("notes") || "—"}`,
+      `${get("notes") || "—"}`,
     ];
     const body = encodeURIComponent(lines.join("\n"));
     window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
   };
 
   return (
@@ -93,6 +126,28 @@ export function DiagnosticForm() {
 
         <Reveal delay={140}>
           <div className="mt-12 max-w-4xl mx-auto">
+            {status === "success" ? (
+              <div className="rounded-3xl border border-[var(--color-brand-bright)]/40 bg-[var(--color-brand-blue)]/10 backdrop-blur-md p-8 md:p-12 text-center">
+                <div className="mx-auto mb-6 grid place-items-center w-16 h-16 rounded-full bg-[var(--color-brand-blue)]/20 border border-[var(--color-brand-bright)]/50">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path
+                      d="M5 12.5l4 4L19 7"
+                      stroke="#3FA0FF"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3 className="font-display text-3xl md:text-4xl tracking-tight">
+                  Diagnostic request received.
+                </h3>
+                <p className="mt-4 text-base md:text-lg text-[var(--color-ink-secondary)] max-w-xl mx-auto">
+                  It&apos;s logged in our system. A strategist will review your situation and reach
+                  out within one business hour during EST hours — already prepped on your specifics.
+                </p>
+              </div>
+            ) : (
             <form
               onSubmit={handleSubmit}
               className="rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/70 backdrop-blur-md p-6 md:p-10"
@@ -147,24 +202,42 @@ export function DiagnosticForm() {
 
               <div className="mt-8 flex flex-col-reverse md:flex-row gap-4 md:items-center md:justify-between">
                 <p className="text-[11px] text-[var(--color-ink-tertiary)] leading-relaxed max-w-md">
-                  Submitting opens your mail client with the message pre-filled. You can edit
-                  before sending. Prefer a different channel? Email us directly at{" "}
-                  <a
-                    href="mailto:hello@apexrevenueoperations.com"
-                    className="text-[var(--color-brand-bright)] underline"
-                  >
-                    hello@apexrevenueoperations.com
-                  </a>
-                  .
+                  {status === "error" ? (
+                    <>
+                      Our system was briefly unreachable, so we opened an email draft as a backup —
+                      just hit send. Or email us directly at{" "}
+                      <a
+                        href="mailto:hello@apexrevenueoperations.com"
+                        className="text-[var(--color-brand-bright)] underline"
+                      >
+                        hello@apexrevenueoperations.com
+                      </a>
+                      .
+                    </>
+                  ) : (
+                    <>
+                      Submitting sends your request straight to our team — no email client needed.
+                      Prefer a different channel? Email us at{" "}
+                      <a
+                        href="mailto:hello@apexrevenueoperations.com"
+                        className="text-[var(--color-brand-bright)] underline"
+                      >
+                        hello@apexrevenueoperations.com
+                      </a>
+                      .
+                    </>
+                  )}
                 </p>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl bg-[var(--color-brand-blue)] hover:bg-[var(--color-brand-bright)] text-white font-semibold transition-all hover:shadow-[0_0_32px_rgba(63,160,255,0.5)] whitespace-nowrap"
+                  disabled={status === "sending"}
+                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl bg-[var(--color-brand-blue)] hover:bg-[var(--color-brand-bright)] text-white font-semibold transition-all hover:shadow-[0_0_32px_rgba(63,160,255,0.5)] whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {submitted ? "Sent →" : "Send diagnostic request →"}
+                  {status === "sending" ? "Sending…" : "Send diagnostic request →"}
                 </button>
               </div>
             </form>
+            )}
           </div>
         </Reveal>
 

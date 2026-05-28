@@ -1,8 +1,48 @@
 "use client";
 
+import { useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
+import { submitLead } from "@/lib/submitLead";
+
+type Status = "idle" | "sending" | "success" | "error";
 
 export function FinalCta() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const get = (k: string) => (fd.get(k) as string) || "";
+
+    setStatus("sending");
+    const result = await submitLead({
+      name: get("name"),
+      email: get("email"),
+      phone: get("phone"),
+      company: get("company"),
+      role: get("role"),
+      industry: get("industry"),
+      monthlyLeads: get("leads"),
+      source: "apex_website",
+      notes: get("notes") ? `#1 suspected leak: ${get("notes")}` : "",
+    });
+
+    if (result.ok) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
+    // Never lose a lead: fall back to a pre-filled email draft.
+    setStatus("error");
+    const subject = encodeURIComponent("APEX diagnostic request — " + get("company"));
+    const body = encodeURIComponent(
+      `Name: ${get("name")}\nCompany: ${get("company")}\nRole: ${get("role")}\nEmail: ${get("email")}\nPhone: ${get("phone")}\nMonthly leads: ${get("leads")}\nIndustry: ${get("industry")}\n\nSuspected leak:\n${get("notes")}`
+    );
+    window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
+  }
+
   return (
     <section
       id="contact"
@@ -50,40 +90,51 @@ export function FinalCta() {
 
         <Reveal delay={180}>
           <div className="mt-10 max-w-2xl mx-auto">
-            <form
-              className="rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/70 backdrop-blur-md p-6 md:p-8"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const subject = encodeURIComponent("APEX diagnostic request — " + (fd.get("company") || ""));
-                const body = encodeURIComponent(
-                  `Name: ${fd.get("name")}\nCompany: ${fd.get("company")}\nRole: ${fd.get("role")}\nEmail: ${fd.get("email")}\nMonthly leads: ${fd.get("leads")}\n\nNotes:\n${fd.get("notes") || ""}`
-                );
-                window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
-              }}
-            >
-              <div className="grid sm:grid-cols-2 gap-3">
-                <Field name="name" label="Your name" required />
-                <Field name="company" label="Company" required />
-                <Field name="role" label="Your role" placeholder="Owner / VP Ops / CRO" />
-                <Field name="email" label="Email" type="email" required />
-                <Field name="leads" label="Monthly leads (approx)" placeholder="e.g. 350" />
-                <Field name="industry" label="Industry" placeholder="Roofing / HVAC / etc" />
-              </div>
-              <div className="mt-3">
-                <Field name="notes" label="What's the #1 leak you suspect?" as="textarea" />
-              </div>
-              <button
-                type="submit"
-                className="mt-5 w-full inline-flex items-center justify-center gap-2 h-14 rounded-xl bg-[var(--color-brand-blue)] hover:bg-[var(--color-brand-bright)] text-white font-semibold transition-all hover:shadow-[0_0_28px_rgba(63,160,255,0.45)]"
+            {status === "success" ? (
+              <SuccessCard />
+            ) : (
+              <form
+                className="rounded-3xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-elevated)]/70 backdrop-blur-md p-6 md:p-8"
+                onSubmit={handleSubmit}
               >
-                Send diagnostic request
-                <span>→</span>
-              </button>
-              <p className="mt-3 text-[11px] text-[var(--color-ink-tertiary)] text-center">
-                We reply within one business hour. Calendly link sent with reply.
-              </p>
-            </form>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <Field name="name" label="Your name" required />
+                  <Field name="company" label="Company" required />
+                  <Field name="role" label="Your role" placeholder="Owner / VP Ops / CRO" />
+                  <Field name="email" label="Email" type="email" required />
+                  <Field name="phone" label="Phone (optional)" type="tel" placeholder="+1 (555) 555-5555" />
+                  <Field name="leads" label="Monthly leads (approx)" placeholder="e.g. 350" />
+                </div>
+                <div className="mt-3">
+                  <Field name="industry" label="Industry" placeholder="Roofing / HVAC / etc" />
+                </div>
+                <div className="mt-3">
+                  <Field name="notes" label="What's the #1 leak you suspect?" as="textarea" />
+                </div>
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="mt-5 w-full inline-flex items-center justify-center gap-2 h-14 rounded-xl bg-[var(--color-brand-blue)] hover:bg-[var(--color-brand-bright)] text-white font-semibold transition-all hover:shadow-[0_0_28px_rgba(63,160,255,0.45)] disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === "sending" ? (
+                    "Sending…"
+                  ) : (
+                    <>
+                      Send diagnostic request
+                      <span>→</span>
+                    </>
+                  )}
+                </button>
+                {status === "error" && (
+                  <p className="mt-3 text-[12px] text-[var(--color-brand-bright)] text-center">
+                    We opened an email draft as a backup — just hit send and we&apos;ll take it from there.
+                  </p>
+                )}
+                <p className="mt-3 text-[11px] text-[var(--color-ink-tertiary)] text-center">
+                  We reply within one business hour during EST hours.
+                </p>
+              </form>
+            )}
           </div>
         </Reveal>
 
@@ -96,6 +147,29 @@ export function FinalCta() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function SuccessCard() {
+  return (
+    <div className="rounded-3xl border border-[var(--color-brand-bright)]/40 bg-[var(--color-brand-blue)]/10 backdrop-blur-md p-8 md:p-10 text-center">
+      <div className="mx-auto mb-5 grid place-items-center w-14 h-14 rounded-full bg-[var(--color-brand-blue)]/20 border border-[var(--color-brand-bright)]/50">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M5 12.5l4 4L19 7"
+            stroke="#3FA0FF"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+      <h3 className="font-display text-2xl md:text-3xl tracking-tight">Request received.</h3>
+      <p className="mt-3 text-base text-[var(--color-ink-secondary)] max-w-md mx-auto">
+        It&apos;s in our system and a strategist will reach out within one business hour during EST
+        hours. Keep an eye on your inbox.
+      </p>
+    </div>
   );
 }
 
