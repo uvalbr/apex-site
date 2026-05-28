@@ -38,7 +38,7 @@ const ROWS: Row[] = [
   {
     axis: "Fully-loaded monthly cost",
     detail: "All-in: salary, tax, benefits, software, mgmt",
-    apex:     { mark: "yes",     note: "$8.5K–$25K flat" },
+    apex:     { mark: "yes",     note: "$8.5K–$33.5K flat" },
     internal: { mark: "no",      note: "$22K+/mo (3 CSRs)" },
     bpo:      { mark: "partial", note: "Cheap but per-minute" },
     va:       { mark: "partial", note: "Cheap, single point" },

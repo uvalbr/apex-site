@@ -10,7 +10,7 @@ import { PricingCta } from "@/components/pricing-page/PricingCta";
 export const metadata: Metadata = {
   title: "Pricing — Four tiers, transparent math",
   description:
-    "Fixed monthly base $8.5K–$25K plus per-appointment fee plus revenue share. Pilot, Growth, Expansion, and Enterprise tiers for U.S. construction operators.",
+    "Fixed monthly base $8.5K–$33.5K plus per-appointment fee plus revenue share. Pilot, Growth, Expansion, and Enterprise tiers for U.S. construction operators.",
   keywords: [
     "outsourced sales operations pricing",
     "appointment setting cost construction",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Pricing — APEX Revenue Operations",
     description:
-      "Four engagement tiers: Pilot ($8.5K), Growth ($15K), Expansion ($20K), Enterprise ($25K) monthly base + performance + revenue share.",
+      "Four engagement tiers: Pilot ($8.5K), Growth ($17.5K), Expansion ($27.5K), Enterprise ($33.5K) monthly base + performance + revenue share.",
     url: "https://apexrevenueoperations.com/pricing",
     siteName: "APEX Revenue Operations",
   },

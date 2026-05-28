@@ -61,7 +61,7 @@ export function WhyPanama() {
             />
             <CostCard
               label="APEX (Growth tier)"
-              monthly={15000}
+              monthly={17500}
               detail="Same team composition · fully managed · zero recruiting / HR / payroll"
               tone="brand"
             />

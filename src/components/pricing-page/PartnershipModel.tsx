@@ -13,13 +13,13 @@ const STEPS = [
   {
     n: "02",
     title: "Per-qualified-appointment fee",
-    body: "$100–200 per appointment that actually runs and meets your qualification criteria. Verified through your CRM, not ours. Paid monthly in arrears.",
+    body: "$150–200 per appointment that actually runs and meets your qualification criteria. Verified through your CRM, not ours. Paid monthly in arrears.",
     accent: "Activity layer",
   },
   {
     n: "03",
     title: "Revenue share on closed projects",
-    body: "5–10% of project revenue on deals that close from APEX-originated appointments. Capped per-deal at a ceiling negotiated in your contract. Tracked through CRM-attributed close events.",
+    body: "10–15% of project revenue on deals that close from APEX-originated appointments. Capped per-deal at a ceiling negotiated in your contract. Tracked through CRM-attributed close events.",
     accent: "Outcome layer",
   },
 ];

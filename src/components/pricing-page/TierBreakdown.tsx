@@ -43,7 +43,7 @@ const TIERS: Tier[] = [
     id: "growth",
     name: "Growth Revenue Team",
     tagline: "Dedicated revenue ops department",
-    monthly: 15000,
+    monthly: 17500,
     forWho:
       "Established contractors doing $10M–$30M/yr, processing 300–700 leads/month from 2–4 sources, ready to commit to a full revenue ops function.",
     team: "5 agents · 1 manager · 1 confirmer",
@@ -52,8 +52,8 @@ const TIERS: Tier[] = [
       "Dedicated team manager with daily standups + weekly client check-ins",
       "Multi-channel intake: form fills, calls, chat, paid ads, organic",
       "Quarterly strategy session with your sales leadership",
-      "+$100–200 per qualified appointment (verified through your CRM)",
-      "5–10% revenue share on closed projects originating from APEX-set appointments",
+      "+$150–200 per qualified appointment (verified through your CRM)",
+      "10–15% revenue share on closed projects originating from APEX-set appointments",
       "HR, payroll, legal, and benefits fully handled by APEX",
     ],
     outcomes: [
@@ -68,7 +68,7 @@ const TIERS: Tier[] = [
     id: "expansion",
     name: "Expansion Revenue Department",
     tagline: "Multi-channel revenue engine",
-    monthly: 20000,
+    monthly: 27500,
     forWho:
       "Scaling contractors at $25M–$60M/yr running multiple service lines or geographic markets, needing dedicated analytics and multi-source orchestration.",
     team: "10 agents · 1 manager · 2 confirmers · 1 analyst",
@@ -92,7 +92,7 @@ const TIERS: Tier[] = [
     id: "enterprise",
     name: "Enterprise Revenue Division",
     tagline: "Full scale, multi-market",
-    monthly: 25000,
+    monthly: 33500,
     forWho:
       "Large operators at $60M+/yr running multiple regional brands, franchise networks, or roll-up portfolios who need a true revenue division.",
     team: "15 agents · 1 manager · 3 confirmers · 1 analyst · executive ops liaison",

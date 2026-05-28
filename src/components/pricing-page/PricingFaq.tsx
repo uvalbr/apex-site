@@ -9,7 +9,7 @@ import { ease } from "@/lib/motion";
 const FAQS = [
   {
     q: "What's included in the per-appointment fee?",
-    a: "The $100–200 covers a qualified appointment that meets your CRM-defined criteria and actually runs (not just gets scheduled). It includes confirmation calls, reschedule handling, and pre-call data enrichment. You don't pay for no-shows, unqualified bookings, or wrong-numbers — only for appointments your sales team actually sat down with.",
+    a: "The $150–200 covers a qualified appointment that meets your CRM-defined criteria and actually runs (not just gets scheduled). It includes confirmation calls, reschedule handling, and pre-call data enrichment. You don't pay for no-shows, unqualified bookings, or wrong-numbers — only for appointments your sales team actually sat down with.",
   },
   {
     q: "Can I switch tiers mid-engagement?",

@@ -6,9 +6,9 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const TIERS = [
   { id: "pilot", name: "Pilot", monthly: 8500 },
-  { id: "growth", name: "Growth", monthly: 15000 },
-  { id: "expansion", name: "Expansion", monthly: 20000 },
-  { id: "enterprise", name: "Enterprise", monthly: 25000 },
+  { id: "growth", name: "Growth", monthly: 17500 },
+  { id: "expansion", name: "Expansion", monthly: 27500 },
+  { id: "enterprise", name: "Enterprise", monthly: 33500 },
 ] as const;
 
 export function RoiCalculator() {

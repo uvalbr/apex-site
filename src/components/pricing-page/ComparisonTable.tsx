@@ -13,9 +13,9 @@ type TierHeader = { name: string; price: number; sub: string; highlight?: boolea
 
 const TIERS: TierHeader[] = [
   { name: "Pilot", price: 8500, sub: "60-day proof" },
-  { name: "Growth", price: 15000, sub: "Most popular", highlight: true },
-  { name: "Expansion", price: 20000, sub: "Multi-source" },
-  { name: "Enterprise", price: 25000, sub: "Multi-market" },
+  { name: "Growth", price: 17500, sub: "Most popular", highlight: true },
+  { name: "Expansion", price: 27500, sub: "Multi-source" },
+  { name: "Enterprise", price: 33500, sub: "Multi-market" },
 ];
 
 const ROWS: FeatureRow[] = [
@@ -31,8 +31,8 @@ const ROWS: FeatureRow[] = [
   { group: "Operations", label: "Advanced reporting & call analytics", values: [false, true, true, true] },
   { group: "Operations", label: "Enterprise-grade ops management", values: [false, false, false, true] },
 
-  { group: "Performance fees", label: "Per qualified appointment", values: ["—", "$100–200", "$100–200", "$100–200"] },
-  { group: "Performance fees", label: "Revenue share on closed projects", values: ["—", "5–10%", "5–10%", "5–10%"] },
+  { group: "Performance fees", label: "Per qualified appointment", values: ["—", "$150–200", "$150–200", "$150–200"] },
+  { group: "Performance fees", label: "Revenue share on closed projects", values: ["—", "10–15%", "10–15%", "10–15%"] },
 
   { group: "Support", label: "HR / payroll / legal handled", values: [true, true, true, true] },
   { group: "Support", label: "Performance review cadence", values: ["Day 30 + 60", "Weekly", "Weekly", "Weekly + monthly executive"] },

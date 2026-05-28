@@ -39,7 +39,7 @@ const TIERS: Tier[] = [
     id: "growth",
     name: "Growth Revenue Team",
     tagline: "Dedicated revenue ops department",
-    monthly: 15000,
+    monthly: 17500,
     agents: 5,
     managers: 1,
     confirmers: 1,
@@ -49,15 +49,15 @@ const TIERS: Tier[] = [
       "Reporting dashboard",
       "KPI oversight & weekly reviews",
       "HR, accounting & legal support",
-      "+$100–200 per qualified appointment",
-      "5–10% revenue share on closed projects",
+      "+$150–200 per qualified appointment",
+      "10–15% revenue share on closed projects",
     ],
   },
   {
     id: "expansion",
     name: "Expansion Revenue Department",
     tagline: "Multi-channel revenue engine",
-    monthly: 20000,
+    monthly: 27500,
     agents: 10,
     managers: 1,
     confirmers: 2,
@@ -67,15 +67,15 @@ const TIERS: Tier[] = [
       "Full operational infrastructure",
       "Dedicated reporting analyst",
       "HR, accounting & legal support",
-      "+$100–200 per qualified appointment",
-      "5–10% revenue share on closed projects",
+      "+$150–200 per qualified appointment",
+      "10–15% revenue share on closed projects",
     ],
   },
   {
     id: "enterprise",
     name: "Enterprise Revenue Division",
     tagline: "Full scale, multi-market",
-    monthly: 25000,
+    monthly: 33500,
     agents: 15,
     managers: 1,
     confirmers: 3,
@@ -85,8 +85,8 @@ const TIERS: Tier[] = [
       "Scalable staffing infrastructure",
       "Full revenue operations division",
       "HR, accounting & legal support",
-      "+$100–200 per qualified appointment",
-      "5–10% revenue share on closed projects",
+      "+$150–200 per qualified appointment",
+      "10–15% revenue share on closed projects",
     ],
   },
 ];
@@ -214,8 +214,8 @@ export function Pricing() {
 
                   {activeIdx > 0 && (
                     <div className="mt-7 space-y-3">
-                      <Row label="Per qualified appointment" value="$100–200" />
-                      <Row label="Revenue share on closed projects" value="5–10%" />
+                      <Row label="Per qualified appointment" value="$150–200" />
+                      <Row label="Revenue share on closed projects" value="10–15%" />
                     </div>
                   )}
                 </div>
