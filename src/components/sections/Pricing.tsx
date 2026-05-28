@@ -128,37 +128,58 @@ export function Pricing() {
                 </button>
               ))}
             </div>
-            <div className="relative h-2 rounded-full bg-[var(--color-bg-surface)] overflow-hidden">
+            {/*
+              Slider — bar fill and thumb both anchored to the active tier
+              label's center. With N tiers in a CSS grid of N equal columns,
+              each label centers at (i + 0.5) / N. We use that exact percent
+              for both the gradient bar's right edge AND the custom thumb's
+              left position, so they're guaranteed to track together.
+
+              The native range input is kept for keyboard / touch / a11y, but
+              its thumb is hidden — we render our own absolutely-positioned
+              thumb on top.
+            */}
+            <div className="relative h-6 flex items-center">
+              {/* Track */}
+              <div className="absolute inset-x-0 h-2 rounded-full bg-[var(--color-bg-surface)] overflow-hidden">
+                <motion.div
+                  className="absolute inset-y-0 left-0"
+                  style={{
+                    background: "linear-gradient(90deg, #1E5FD8, #3FA0FF)",
+                    boxShadow: "0 0 16px rgba(63,160,255,0.6)",
+                  }}
+                  initial={false}
+                  animate={{ width: `${((activeIdx + 0.5) / TIERS.length) * 100}%` }}
+                  transition={{ duration: 0.5, ease: ease.outQuart }}
+                />
+              </div>
+              {/* Custom thumb — perfectly synced with bar end + label center */}
               <motion.div
-                className="absolute h-full"
+                aria-hidden
+                className="absolute top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white border-2 border-[var(--color-brand-blue)] pointer-events-none"
                 style={{
-                  background: "linear-gradient(90deg, #1E5FD8, #3FA0FF)",
-                  boxShadow: "0 0 16px rgba(63,160,255,0.6)",
+                  boxShadow:
+                    "0 0 0 6px rgba(30,95,216,0.16), 0 4px 12px rgba(0,0,0,0.5)",
                 }}
                 initial={false}
-                animate={{ width: `${((activeIdx + 1) / TIERS.length) * 100}%` }}
+                animate={{ left: `${((activeIdx + 0.5) / TIERS.length) * 100}%` }}
                 transition={{ duration: 0.5, ease: ease.outQuart }}
               />
+              {/* Native input (transparent, sits on top for input handling) */}
+              <input
+                type="range"
+                min={0}
+                max={TIERS.length - 1}
+                step={1}
+                value={activeIdx}
+                onChange={(e) => setActiveIdx(Number(e.target.value))}
+                aria-label="Pricing tier"
+                className="absolute inset-0 w-full h-full appearance-none bg-transparent cursor-pointer opacity-0
+                  [&::-webkit-slider-thumb]:appearance-none
+                  [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6
+                  [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6"
+              />
             </div>
-            <input
-              type="range"
-              min={0}
-              max={TIERS.length - 1}
-              step={1}
-              value={activeIdx}
-              onChange={(e) => setActiveIdx(Number(e.target.value))}
-              aria-label="Pricing tier"
-              className="w-full h-6 -mt-4 appearance-none bg-transparent cursor-pointer
-                [&::-webkit-slider-thumb]:appearance-none
-                [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6
-                [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white
-                [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[var(--color-brand-blue)]
-                [&::-webkit-slider-thumb]:cursor-grab
-                [&::-webkit-slider-thumb]:shadow-[0_0_0_6px_rgba(30,95,216,0.16),0_4px_12px_rgba(0,0,0,0.5)]
-                [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6
-                [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white
-                [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[var(--color-brand-blue)]"
-            />
           </div>
         </Reveal>
 
