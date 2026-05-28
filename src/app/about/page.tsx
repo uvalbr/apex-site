@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "construction sales operations company",
     "60 day sales onboarding",
   ],
-  alternates: { canonical: "https://apex.texasserviceexperts.com/about" },
+  alternates: { canonical: "https://apexrevenueoperations.com/about" },
   openGraph: {
     type: "website",
     title: "About APEX Revenue Operations",
     description:
       "Dedicated revenue operations for U.S. construction. EST-aligned, Panama-based, 60-day onboarding, performance-aligned engagements.",
-    url: "https://apex.texasserviceexperts.com/about",
+    url: "https://apexrevenueoperations.com/about",
     siteName: "APEX Revenue Operations",
   },
 };

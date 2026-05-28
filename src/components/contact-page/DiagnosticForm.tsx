@@ -73,7 +73,7 @@ export function DiagnosticForm() {
       `${fd.get("notes") || "—"}`,
     ];
     const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:hello@apex.texasserviceexperts.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -150,10 +150,10 @@ export function DiagnosticForm() {
                   Submitting opens your mail client with the message pre-filled. You can edit
                   before sending. Prefer a different channel? Email us directly at{" "}
                   <a
-                    href="mailto:hello@apex.texasserviceexperts.com"
+                    href="mailto:hello@apexrevenueoperations.com"
                     className="text-[var(--color-brand-bright)] underline"
                   >
-                    hello@apex.texasserviceexperts.com
+                    hello@apexrevenueoperations.com
                   </a>
                   .
                 </p>

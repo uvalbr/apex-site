@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "404 — Page not found",
   description:
-    "That route doesn't exist on apex.texasserviceexperts.com. Try the main entry points: services, pricing, industries, or book a diagnostic call.",
+    "That route doesn't exist on apexrevenueoperations.com. Try the main entry points: services, pricing, industries, or book a diagnostic call.",
   robots: { index: false, follow: true },
 };
 
@@ -73,10 +73,10 @@ export default function NotFound() {
               Try one of the main routes on the right. If you got here from a link inside the site,
               we&rsquo;d like to know — email{" "}
               <a
-                href="mailto:service@texasserviceexperts.com"
+                href="mailto:hello@apexrevenueoperations.com"
                 className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
               >
-                service@texasserviceexperts.com
+                hello@apexrevenueoperations.com
               </a>{" "}
               with the broken URL.
             </p>

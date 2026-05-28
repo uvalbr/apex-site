@@ -35,7 +35,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const industry = getIndustryBySlug(slug);
   if (!industry) return {};
-  const canonical = `https://apex.texasserviceexperts.com/industries/${industry.slug}`;
+  const canonical = `https://apexrevenueoperations.com/industries/${industry.slug}`;
   const shortDesc = `Revenue operations for ${industry.label.toLowerCase()}: speed-to-lead, qualified booking, no-show reduction, and pipeline nurture tuned to ${industry.shortLabel.toLowerCase()} economics.`;
   return {
     title: `${industry.label} Revenue Operations — Built for ${industry.shortLabel}`,
@@ -73,7 +73,7 @@ export default async function IndustryPage({
   // Related industries (the other 4, in display order)
   const related = INDUSTRIES.filter((i) => i.slug !== industry.slug).slice(0, 3);
 
-  const canonical = `https://apex.texasserviceexperts.com/industries/${industry.slug}`;
+  const canonical = `https://apexrevenueoperations.com/industries/${industry.slug}`;
   const faqItems = industry.faqs.map((f) => ({ question: f.q, answer: f.a }));
 
   return (

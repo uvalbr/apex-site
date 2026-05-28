@@ -59,7 +59,7 @@ export function FinalCta() {
                 const body = encodeURIComponent(
                   `Name: ${fd.get("name")}\nCompany: ${fd.get("company")}\nRole: ${fd.get("role")}\nEmail: ${fd.get("email")}\nMonthly leads: ${fd.get("leads")}\n\nNotes:\n${fd.get("notes") || ""}`
                 );
-                window.location.href = `mailto:hello@apex.texasserviceexperts.com?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
               }}
             >
               <div className="grid sm:grid-cols-2 gap-3">

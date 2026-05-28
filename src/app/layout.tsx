@@ -29,7 +29,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://apex.texasserviceexperts.com"),
+  metadataBase: new URL("https://apexrevenueoperations.com"),
   title: {
     default: "APEX Revenue Operations — Built to Convert. Driven to Scale.",
     template: "%s — APEX Revenue Operations",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "APEX Revenue Operations",
     description:
       "Outsourced revenue operations infrastructure for construction companies. Built to convert. Driven to scale.",
-    url: "https://apex.texasserviceexperts.com",
+    url: "https://apexrevenueoperations.com",
     siteName: "APEX Revenue Operations",
     images: [
       {

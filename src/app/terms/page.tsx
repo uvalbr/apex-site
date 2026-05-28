@@ -6,14 +6,14 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms governing use of apex.texasserviceexperts.com. B2B marketing site, U.S. jurisdiction, no purchases through the site, contact-only relationship until a signed agreement.",
-  alternates: { canonical: "https://apex.texasserviceexperts.com/terms" },
+    "Terms governing use of apexrevenueoperations.com. B2B marketing site, U.S. jurisdiction, no purchases through the site, contact-only relationship until a signed agreement.",
+  alternates: { canonical: "https://apexrevenueoperations.com/terms" },
   openGraph: {
     type: "website",
     title: "Terms of Service — APEX Revenue Operations",
     description:
       "Terms governing use of the APEX Revenue Operations website. B2B marketing only.",
-    url: "https://apex.texasserviceexperts.com/terms",
+    url: "https://apexrevenueoperations.com/terms",
     siteName: "APEX Revenue Operations",
   },
   robots: { index: true, follow: true },
@@ -30,7 +30,7 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           These Terms of Service (&ldquo;Terms&rdquo;) govern your use of{" "}
           <span className="text-[var(--color-ink-primary)] font-medium">
-            apex.texasserviceexperts.com
+            apexrevenueoperations.com
           </span>{" "}
           (the &ldquo;Site&rdquo;), operated by APEX Revenue Operations (&ldquo;APEX,&rdquo;
           &ldquo;we,&rdquo; or &ldquo;us&rdquo;). By accessing the Site you agree to these Terms. If
@@ -216,10 +216,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           Questions:{" "}
           <a
-            href="mailto:service@texasserviceexperts.com"
+            href="mailto:hello@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            service@texasserviceexperts.com
+            hello@apexrevenueoperations.com
           </a>
           .
         </p>

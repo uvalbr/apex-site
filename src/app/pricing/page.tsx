@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "construction sales pilot program",
     "performance-based appointment fees",
   ],
-  alternates: { canonical: "https://apex.texasserviceexperts.com/pricing" },
+  alternates: { canonical: "https://apexrevenueoperations.com/pricing" },
   openGraph: {
     type: "website",
     title: "Pricing — APEX Revenue Operations",
     description:
       "Four engagement tiers: Pilot ($8.5K), Growth ($15K), Expansion ($20K), Enterprise ($25K) monthly base + performance + revenue share.",
-    url: "https://apex.texasserviceexperts.com/pricing",
+    url: "https://apexrevenueoperations.com/pricing",
     siteName: "APEX Revenue Operations",
   },
 };

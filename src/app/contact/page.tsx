@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     "book sales operations consultation",
     "contact APEX Revenue Operations",
   ],
-  alternates: { canonical: "https://apex.texasserviceexperts.com/contact" },
+  alternates: { canonical: "https://apexrevenueoperations.com/contact" },
   openGraph: {
     type: "website",
     title: "Contact APEX Revenue Operations",
     description:
       "Book a 30-minute diagnostic call. Free audit of your funnel. One-business-hour response on EST.",
-    url: "https://apex.texasserviceexperts.com/contact",
+    url: "https://apexrevenueoperations.com/contact",
     siteName: "APEX Revenue Operations",
   },
 };

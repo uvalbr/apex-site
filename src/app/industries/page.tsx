@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     "pool builder sales operations",
     "general contractor lead scoring",
   ],
-  alternates: { canonical: "https://apex.texasserviceexperts.com/industries" },
+  alternates: { canonical: "https://apexrevenueoperations.com/industries" },
   openGraph: {
     type: "website",
     title: "Industries — APEX Revenue Operations",
     description:
       "Five construction verticals, five tuned playbooks. Roofing speed-to-lead. HVAC dispatch. Remodeling nurture. Pool long-cycle. GC scoring.",
-    url: "https://apex.texasserviceexperts.com/industries",
+    url: "https://apexrevenueoperations.com/industries",
     siteName: "APEX Revenue Operations",
   },
 };

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { ARTICLE_SLUGS } from "@/lib/resources-data";
 
-const SITE_URL = "https://apex.texasserviceexperts.com";
+const SITE_URL = "https://apexrevenueoperations.com";
 
 export const dynamic = "force-static";
 

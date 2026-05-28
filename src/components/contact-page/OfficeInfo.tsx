@@ -44,18 +44,18 @@ export function OfficeInfo() {
           <div className="mt-6 grid md:grid-cols-3 gap-3">
             <ContactTile
               label="General inquiries"
-              value="hello@apex.texasserviceexperts.com"
-              href="mailto:hello@apex.texasserviceexperts.com"
+              value="hello@apexrevenueoperations.com"
+              href="mailto:hello@apexrevenueoperations.com"
             />
             <ContactTile
               label="Partnerships"
-              value="partners@apex.texasserviceexperts.com"
-              href="mailto:partners@apex.texasserviceexperts.com"
+              value="partners@apexrevenueoperations.com"
+              href="mailto:partners@apexrevenueoperations.com"
             />
             <ContactTile
               label="Press / media"
-              value="press@apex.texasserviceexperts.com"
-              href="mailto:press@apex.texasserviceexperts.com"
+              value="press@apexrevenueoperations.com"
+              href="mailto:press@apexrevenueoperations.com"
             />
           </div>
         </Reveal>

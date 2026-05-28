@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How APEX Revenue Operations handles information on this site: no third-party tracking, no cookies, hosting-level access logs only, and direct-to-email contact.",
-  alternates: { canonical: "https://apex.texasserviceexperts.com/privacy" },
+  alternates: { canonical: "https://apexrevenueoperations.com/privacy" },
   openGraph: {
     type: "website",
     title: "Privacy Policy — APEX Revenue Operations",
     description:
       "How APEX Revenue Operations handles information on this site. GDPR and CCPA aware.",
-    url: "https://apex.texasserviceexperts.com/privacy",
+    url: "https://apexrevenueoperations.com/privacy",
     siteName: "APEX Revenue Operations",
   },
   robots: { index: true, follow: true },
@@ -31,7 +31,7 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
           This policy describes how APEX Revenue Operations (&ldquo;APEX,&rdquo; &ldquo;we,&rdquo; or
           &ldquo;us&rdquo;) handles information collected through{" "}
           <span className="text-[var(--color-ink-primary)] font-medium">
-            apex.texasserviceexperts.com
+            apexrevenueoperations.com
           </span>
           . It applies to anyone who visits this website or contacts us via the email address
           published on it.
@@ -69,10 +69,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
             <span className="text-[var(--color-ink-primary)] font-medium">Email you send us.</span>{" "}
             If you email{" "}
             <a
-              href="mailto:service@texasserviceexperts.com"
+              href="mailto:hello@apexrevenueoperations.com"
               className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
             >
-              service@texasserviceexperts.com
+              hello@apexrevenueoperations.com
             </a>
             , the contents of your message and any attachments are received and stored in our
             inbox. We retain that correspondence for the lifetime of the business relationship plus
@@ -139,10 +139,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
           Running a business requires a small number of vendors. The ones that may incidentally
           process information you send to this site or to{" "}
           <a
-            href="mailto:service@texasserviceexperts.com"
+            href="mailto:hello@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            service@texasserviceexperts.com
+            hello@apexrevenueoperations.com
           </a>{" "}
           include:
         </p>
@@ -192,10 +192,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           To exercise any of these rights, email{" "}
           <a
-            href="mailto:service@texasserviceexperts.com"
+            href="mailto:hello@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            service@texasserviceexperts.com
+            hello@apexrevenueoperations.com
           </a>{" "}
           with a clear description of what you&rsquo;re asking for. We&rsquo;ll respond within the
           window required by the applicable law (typically 30 days).
@@ -249,10 +249,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           Privacy questions, requests, or complaints:{" "}
           <a
-            href="mailto:service@texasserviceexperts.com"
+            href="mailto:hello@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            service@texasserviceexperts.com
+            hello@apexrevenueoperations.com
           </a>
           . APEX Revenue Operations is a U.S.-contact business; correspondence is handled from a
           U.S. business contact and routed to operations in Panama.

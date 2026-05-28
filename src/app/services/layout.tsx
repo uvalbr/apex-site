@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     "construction CRM management",
     "revenue operations services construction",
   ],
-  alternates: { canonical: "https://apex.texasserviceexperts.com/services" },
+  alternates: { canonical: "https://apexrevenueoperations.com/services" },
   openGraph: {
     type: "website",
     title: "APEX Services — Five systems. One revenue operations backbone.",
     description:
       "Live inbound answering, outbound lead reactivation, no-show reduction, CRM ops, and KPI reporting for U.S. construction companies.",
-    url: "https://apex.texasserviceexperts.com/services",
+    url: "https://apexrevenueoperations.com/services",
     siteName: "APEX Revenue Operations",
   },
 };

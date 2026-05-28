@@ -32,10 +32,10 @@ export function PricingCta() {
                 Talk to us about custom terms →
               </a>
               <a
-                href="mailto:hello@apex.texasserviceexperts.com"
+                href="mailto:hello@apexrevenueoperations.com"
                 className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-xl border border-[var(--color-border-strong)] hover:border-[var(--color-brand-bright)] hover:bg-[var(--color-bg-elevated)] text-[var(--color-ink-primary)] font-semibold transition-colors"
               >
-                Email hello@apex.texasserviceexperts.com
+                Email hello@apexrevenueoperations.com
               </a>
             </div>
           </div>

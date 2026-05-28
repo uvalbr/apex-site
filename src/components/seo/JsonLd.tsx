@@ -8,7 +8,7 @@
  * Dropped into app/layout.tsx so every page inherits the org-level signals.
  */
 
-const SITE_URL = "https://apex.texasserviceexperts.com";
+const SITE_URL = "https://apexrevenueoperations.com";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -28,7 +28,7 @@ const organizationSchema = {
     {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "service@texasserviceexperts.com",
+      email: "hello@apexrevenueoperations.com",
       areaServed: "US",
       availableLanguage: ["English", "Spanish"],
     },

@@ -5,7 +5,7 @@
  * defaults to "APEX Revenue Operations" if omitted.
  */
 
-const SITE_URL = "https://apex.texasserviceexperts.com";
+const SITE_URL = "https://apexrevenueoperations.com";
 
 export type ArticleJsonLdProps = {
   headline: string;

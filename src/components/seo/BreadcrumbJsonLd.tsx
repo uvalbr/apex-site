@@ -5,7 +5,7 @@
  * component absolute-resolves relative URLs against the canonical host.
  */
 
-const SITE_URL = "https://apex.texasserviceexperts.com";
+const SITE_URL = "https://apexrevenueoperations.com";
 
 export type BreadcrumbItem = {
   name: string;
