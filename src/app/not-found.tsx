@@ -73,10 +73,10 @@ export default function NotFound() {
               Try one of the main routes on the right. If you got here from a link inside the site,
               we&rsquo;d like to know — email{" "}
               <a
-                href="mailto:hello@apexrevenueoperations.com"
+                href="mailto:office@apexrevenueoperations.com"
                 className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
               >
-                hello@apexrevenueoperations.com
+                office@apexrevenueoperations.com
               </a>{" "}
               with the broken URL.
             </p>

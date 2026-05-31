@@ -1,32 +1,59 @@
-// Lead submission → mCRM (OperateOS) public CRM webhook.
+// Lead submission → APEX's own GoHighLevel (GHL) CRM.
 //
 // This site is a fully static export (no server, no API routes), so lead
-// capture happens with a plain client-side fetch straight to the CRM's own
-// public intake function. No third-party form service, no backend to host,
-// and the lead lands in the CRM `Lead` pipeline within ~1s with stage "new".
+// capture happens with a plain client-side fetch. We POST straight to a GHL
+// **Inbound Webhook** trigger URL — the one CRM intake endpoint that is safe to
+// call from public browser code:
 //
-// The endpoint is the `crmWebhook` backend function of the Base44 app
-// `operate-os` (appId 6948d8853cd6a99247757ec6). It is intentionally public
-// (CORS open, open-POST webhook auth) and exposes a `create_lead` action.
+//   • It is write-only (it can only *start* a workflow, never read data), so
+//     unlike a Private Integration Token it is NOT a secret. Shipping it in the
+//     static JS bundle leaks nothing sensitive.
+//   • No backend to host, no third-party form service, no cost.
+//   • Inside GHL, a workflow with the "Inbound Webhook" trigger maps the JSON
+//     below onto a Create/Update Contact action, lands the lead in the
+//     sub-account, tags it `website-lead`, and can notify / route from there.
+//
+// GHL account: sub-account (location) `fI4ba5dh9bm1yEkD4ZRn` — "Lead
+// Qualification" under Apex Revenue Operations. The PIT token used by the
+// Readymode↔GHL bridge is deliberately NOT used here (it must never reach the
+// browser).
+//
+// SETUP — get the URL (one time, GHL UI; workflows can't be made via the API):
+//   1. app.gohighlevel.com → the APEX sub-account → Automation → Workflows
+//   2. + Create Workflow → Start from Scratch
+//   3. Add Trigger → "Inbound Webhook" → Save. Copy the generated URL.
+//   4. Paste it into GHL_INBOUND_WEBHOOK_URL below.
+//   5. Add action "Create/Update Contact" and map fields from the request, e.g.
+//        First Name   = {{inboundWebhookRequest.firstName}}
+//        Last Name    = {{inboundWebhookRequest.lastName}}
+//        Email        = {{inboundWebhookRequest.email}}
+//        Phone        = {{inboundWebhookRequest.phone}}
+//        Company Name = {{inboundWebhookRequest.companyName}}
+//        Source       = {{inboundWebhookRequest.source}}
+//        Tags         = website-lead
+//      and write {{inboundWebhookRequest.notes}} to the contact notes/a field.
+//   6. Publish the workflow.
 
-const CRM_WEBHOOK_URL =
-  "https://base44.app/api/apps/6948d8853cd6a99247757ec6/functions/crmWebhook";
+// The GHL-generated inbound webhook URL. Looks like:
+//   https://services.leadconnectorhq.com/hooks/<locationId>/webhook-trigger/<uuid>
+// Empty string = not configured yet → submitLead reports a clean failure and
+// the form components fall back to their mailto: draft so no lead is lost.
+const GHL_INBOUND_WEBHOOK_URL = "";
 
-// Discriminator written to the lead's source_channel so APEX website leads
-// are filterable in the CRM, and a brand tag so they group under APEX.
-const BRAND_ID = "APEX";
+// Tag every website lead so they are filterable inside GHL.
+const WEBSITE_LEAD_TAG = "website-lead";
 
 export type LeadPayload = {
-  /** Full name (required by the CRM unless a phone is given). */
+  /** Full name (required). Split into first/last for GHL. */
   name: string;
   email: string;
   phone?: string;
   company?: string;
   role?: string;
-  /** Maps to the lead's service_type in the CRM. */
+  /** Prospect's industry/vertical. */
   industry?: string;
   monthlyLeads?: string;
-  /** source_channel discriminator, e.g. "apex_website" / "apex_diagnostic". */
+  /** Discriminator, e.g. "apex_website" / "apex_diagnostic". */
   source: string;
   /** Extra labelled fields folded into the lead notes, in order. */
   extra?: Array<[label: string, value: string | undefined | null]>;
@@ -36,11 +63,17 @@ export type LeadPayload = {
 
 export type LeadResult = { ok: boolean; id?: string; error?: string };
 
+/** Split a free-typed full name into GHL's firstName / lastName. */
+function splitName(full: string): { firstName: string; lastName: string } {
+  const parts = full.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return { firstName: "", lastName: "" };
+  if (parts.length === 1) return { firstName: parts[0], lastName: "" };
+  return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
+}
+
 /**
- * Pull marketing attribution from the current URL + document so the CRM can
- * tie the lead back to its campaign. Returns undefined when there's nothing
- * worth sending (no ad params present) — we still always include the landing
- * context when any ad param exists.
+ * Pull marketing attribution from the current URL + document so GHL can tie the
+ * lead back to its campaign. Returns undefined when no ad params are present.
  */
 function captureAttribution(): Record<string, string> | undefined {
   if (typeof window === "undefined") return undefined;
@@ -63,11 +96,9 @@ function captureAttribution(): Record<string, string> | undefined {
   if (!hasAdSignal) return undefined;
 
   const attribution: Record<string, string> = {
-    brand_id: BRAND_ID,
     first_touch_channel: adFields.utm_source || "website",
     landing_page_url: window.location.href,
     landing_referrer: document.referrer || "",
-    landing_user_agent: navigator.userAgent || "",
   };
   for (const [key, value] of Object.entries(adFields)) {
     if (value) attribution[key] = value;
@@ -92,35 +123,45 @@ function buildNotes(lead: LeadPayload): string {
 }
 
 /**
- * Submit a lead to the CRM. Resolves with { ok: true, id } on success, or
- * { ok: false, error } on any failure — callers should fall back to a mailto:
- * draft so a lead is never silently lost.
+ * Submit a lead to APEX's GoHighLevel via its inbound webhook. Resolves with
+ * { ok: true } on success, or { ok: false, error } on any failure — callers
+ * fall back to a mailto: draft so a lead is never silently lost.
+ *
+ * Note: a GHL inbound webhook returns 200 with no contact id, so on success we
+ * resolve { ok: true } without an id (the id lives in GHL).
  */
 export async function submitLead(lead: LeadPayload): Promise<LeadResult> {
+  if (!GHL_INBOUND_WEBHOOK_URL) {
+    return { ok: false, error: "CRM webhook not configured" };
+  }
+
+  const { firstName, lastName } = splitName(lead.name);
+
   try {
-    const res = await fetch(CRM_WEBHOOK_URL, {
+    const res = await fetch(GHL_INBOUND_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        action: "create_lead",
-        name: lead.name,
+        firstName,
+        lastName,
+        fullName: lead.name,
         email: lead.email,
         phone: lead.phone || "",
-        service_needed: lead.industry || "",
+        companyName: lead.company || "",
+        role: lead.role || "",
+        industry: lead.industry || "",
+        monthlyLeads: lead.monthlyLeads || "",
         source: lead.source,
-        brand_id: BRAND_ID,
+        tags: WEBSITE_LEAD_TAG,
         notes: buildNotes(lead),
-        google_ads_attribution: captureAttribution(),
+        attribution: captureAttribution(),
       }),
     });
 
-    const json: { success?: boolean; data?: { id?: string }; error?: string } | null =
-      await res.json().catch(() => null);
-
-    if (res.ok && json?.success) {
-      return { ok: true, id: json.data?.id };
+    if (res.ok) {
+      return { ok: true };
     }
-    return { ok: false, error: json?.error || `HTTP ${res.status}` };
+    return { ok: false, error: `HTTP ${res.status}` };
   } catch (err) {
     return { ok: false, error: err instanceof Error ? err.message : "Network error" };
   }

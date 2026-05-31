@@ -28,7 +28,7 @@ const organizationSchema = {
     {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "hello@apexrevenueoperations.com",
+      email: "office@apexrevenueoperations.com",
       areaServed: "US",
       availableLanguage: ["English", "Spanish"],
     },

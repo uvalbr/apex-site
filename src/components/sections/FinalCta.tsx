@@ -40,7 +40,7 @@ export function FinalCta() {
     const body = encodeURIComponent(
       `Name: ${get("name")}\nCompany: ${get("company")}\nRole: ${get("role")}\nEmail: ${get("email")}\nPhone: ${get("phone")}\nMonthly leads: ${get("leads")}\nIndustry: ${get("industry")}\n\nSuspected leak:\n${get("notes")}`
     );
-    window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:office@apexrevenueoperations.com?subject=${subject}&body=${body}`;
   }
 
   return (

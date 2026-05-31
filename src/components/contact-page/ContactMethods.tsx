@@ -18,8 +18,8 @@ const METHODS = [
     tag: "Async, response in 1 hr",
     title: "Email us directly",
     body: "Send a note with your company, role, monthly lead volume, and the #1 thing you're trying to solve. We reply with availability and a Calendly link.",
-    cta: "hello@apexrevenueoperations.com",
-    href: "mailto:hello@apexrevenueoperations.com?subject=APEX%20diagnostic%20request",
+    cta: "office@apexrevenueoperations.com",
+    href: "mailto:office@apexrevenueoperations.com?subject=APEX%20diagnostic%20request",
   },
   {
     n: "03",

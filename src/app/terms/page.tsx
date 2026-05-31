@@ -216,10 +216,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           Questions:{" "}
           <a
-            href="mailto:hello@apexrevenueoperations.com"
+            href="mailto:office@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            hello@apexrevenueoperations.com
+            office@apexrevenueoperations.com
           </a>
           .
         </p>

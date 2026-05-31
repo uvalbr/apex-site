@@ -69,10 +69,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
             <span className="text-[var(--color-ink-primary)] font-medium">Email you send us.</span>{" "}
             If you email{" "}
             <a
-              href="mailto:hello@apexrevenueoperations.com"
+              href="mailto:office@apexrevenueoperations.com"
               className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
             >
-              hello@apexrevenueoperations.com
+              office@apexrevenueoperations.com
             </a>
             , the contents of your message and any attachments are received and stored in our
             inbox. We retain that correspondence for the lifetime of the business relationship plus
@@ -139,10 +139,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
           Running a business requires a small number of vendors. The ones that may incidentally
           process information you send to this site or to{" "}
           <a
-            href="mailto:hello@apexrevenueoperations.com"
+            href="mailto:office@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            hello@apexrevenueoperations.com
+            office@apexrevenueoperations.com
           </a>{" "}
           include:
         </p>
@@ -192,10 +192,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           To exercise any of these rights, email{" "}
           <a
-            href="mailto:hello@apexrevenueoperations.com"
+            href="mailto:office@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            hello@apexrevenueoperations.com
+            office@apexrevenueoperations.com
           </a>{" "}
           with a clear description of what you&rsquo;re asking for. We&rsquo;ll respond within the
           window required by the applicable law (typically 30 days).
@@ -249,10 +249,10 @@ const SECTIONS: Array<{ number: string; heading: string; body: React.ReactNode }
         <p>
           Privacy questions, requests, or complaints:{" "}
           <a
-            href="mailto:hello@apexrevenueoperations.com"
+            href="mailto:office@apexrevenueoperations.com"
             className="text-[var(--color-brand-bright)] underline underline-offset-4 hover:text-[var(--color-brand-blue)] transition-colors"
           >
-            hello@apexrevenueoperations.com
+            office@apexrevenueoperations.com
           </a>
           . APEX Revenue Operations is a U.S.-contact business; correspondence is handled from a
           U.S. business contact and routed to operations in Panama.

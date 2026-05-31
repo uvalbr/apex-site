@@ -107,7 +107,7 @@ export function DiagnosticForm() {
       `${get("notes") || "—"}`,
     ];
     const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:hello@apexrevenueoperations.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:office@apexrevenueoperations.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -207,10 +207,10 @@ export function DiagnosticForm() {
                       Our system was briefly unreachable, so we opened an email draft as a backup —
                       just hit send. Or email us directly at{" "}
                       <a
-                        href="mailto:hello@apexrevenueoperations.com"
+                        href="mailto:office@apexrevenueoperations.com"
                         className="text-[var(--color-brand-bright)] underline"
                       >
-                        hello@apexrevenueoperations.com
+                        office@apexrevenueoperations.com
                       </a>
                       .
                     </>
@@ -219,10 +219,10 @@ export function DiagnosticForm() {
                       Submitting sends your request straight to our team — no email client needed.
                       Prefer a different channel? Email us at{" "}
                       <a
-                        href="mailto:hello@apexrevenueoperations.com"
+                        href="mailto:office@apexrevenueoperations.com"
                         className="text-[var(--color-brand-bright)] underline"
                       >
-                        hello@apexrevenueoperations.com
+                        office@apexrevenueoperations.com
                       </a>
                       .
                     </>
